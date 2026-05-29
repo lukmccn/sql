@@ -56,7 +56,7 @@ CREATE TABLE instructor (
     bio TEXT,
     expertise VARCHAR(255),
     phone VARCHAR(20),
-    FOREIGN (user_id) REFERENCES users(id)
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 -- ============================================
