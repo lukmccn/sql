@@ -2,6 +2,7 @@
 -- Tabel: users
 -- ============================================
 USE dibimbing;
+
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50)  NOT NULL UNIQUE,
@@ -12,11 +13,28 @@ CREATE TABLE users (
 );
 
 -- ============================================
--- Tabel: course_categories
+-- Tabel: instructor
 -- ============================================
-CREATE TABLE course_categories (
+CREATE TABLE instructor (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL
+    user_id INT NOT NULL UNIQUE,
+    bio TEXT,
+    expertise VARCHAR(255),
+    phone VARCHAR(20),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+
+-- ============================================
+-- Tabel: student
+-- ============================================
+CREATE TABLE student (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL UNIQUE,
+    bio TEXT,
+    phone VARCHAR(20),
+    education_level VARCHAR(50),
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 -- ============================================
@@ -35,6 +53,14 @@ CREATE TABLE courses (
 );
 
 -- ============================================
+-- Tabel: course_categories
+-- ============================================
+CREATE TABLE course_categories (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
+
+-- ============================================
 -- Tabel: enrollments
 -- ============================================
 CREATE TABLE enrollments (
@@ -46,30 +72,6 @@ CREATE TABLE enrollments (
     PRIMARY KEY (user_id, course_id),
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (course_id) REFERENCES courses(id)
-);
-
--- ============================================
--- Tabel: instructor
--- ============================================
-CREATE TABLE instructor (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL UNIQUE,
-    bio TEXT,
-    expertise VARCHAR(255),
-    phone VARCHAR(20),
-    FOREIGN KEY (user_id) REFERENCES users(id)
-);
-
--- ============================================
--- Tabel: student
--- ============================================
-CREATE TABLE student (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL UNIQUE,
-    bio TEXT,
-    phone VARCHAR(20),
-    education_level VARCHAR(50),
-    FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 -- ============================================
