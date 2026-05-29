@@ -1,6 +1,7 @@
 -- ==============
 -- Users (10 baris)
 -- ==============
+USE dibimbing;
 INSERT INTO users (username, email, password, full_name, role) VALUES
 ('budi.s', 'budi@example.com', 'hash1', 'Budi Santoso', 'student'),
 ('siti.n', 'siti@example.com', 'hash2', 'Siti Nuraini', 'instructor'),
@@ -75,4 +76,4 @@ INSERT INTO student (user_id, bio, phone, education_level) VALUES
 (6, 'Fresh graduate', '0812222223', 'S1'),
 (7, 'Mahasiswa tahun akhir', '0812222224', 'S1'),
 (8, 'Desainer grafis lepas', '0812222225', 'D3'),
-(10, 'Marketing executive', '0812222226', 'S1'),
+(10, 'Marketing executive', '0812222226', 'S1');
