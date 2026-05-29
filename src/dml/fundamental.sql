@@ -1,4 +1,3 @@
--- Copy satu-persatu untuk mengetesnya
 -- 1. Tampilkan seluruh data course
 SELECT * FROM courses;
 
